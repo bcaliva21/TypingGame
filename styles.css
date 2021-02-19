@@ -1,0 +1,57 @@
+html {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+}
+
+body {
+    background: #1D1C1A;
+    color: rgb(95, 158, 160);
+    margin: auto;
+
+    padding: 1em;
+}
+div {
+    padding: 5px;
+}
+
+.cursor{
+    font-size: 50px;
+    background: black;
+}
+
+input {
+    transition: width 0.4s ease-in-out;
+    background-color: #1D1C1A;
+    background-size: 50%;
+    width: fit-content;
+    background-position: 20px 20px;
+    background-repeat: no-repeat;
+    color: coral;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+  }
+span {
+    color: coral;
+}
+input:focus {
+    width: 30%;
+}
+
+/* #action-drop-down {
+    display: none;
+    margin: justify;
+    background-color: #fff;
+    position: relative;
+    padding: 1em;
+    outline: 0;
+    max-width: 50%;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    color: coral;
+}
+
+
+@keyframes animatetop {
+    from {top: 0; opacity: 0}
+    to {top: 50; opacity: 1}
+  } */
