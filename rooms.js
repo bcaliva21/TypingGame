@@ -69,8 +69,238 @@ var rooms = {
       'sleep-on couch': 'You lie down on the couch. So close to the fabric you notice what appears to be blood... the red color disguises it well, you feel uneasy and immediately stand up. You get the feeling you are being watched.',
     },
   },
-  balcony2: {
-    description: 'You are on a balcony that over looks the main living room in the house. '
-  }
+  balcony21: {
+    description: 'You are on a balcony that over looks what appears to be the main living room in the house. The decorations are gaudy; clear diamond chandeliers hang from the ceiling, silk gold drapes hang from the frames of every window, and the floor is a pristine opaque white marble. You find a staircase to the <b>north</b>, a master suite to the <b>east</b>, a small storage closet to the <b>south</b>, and the view of the <b>living room</b> to the west.',
+    directions: {
+      north: 'staircase21',
+      east: 'suite2a',
+      south: 'storage21',
+    },
+    actions: {},
+  },
+  storage21: {
+    description: 'A neatly organized storage closet that seems to double as a living quarters as you see a small <b>bed</b>. It looks like someone lives here. There\'s an alarm clock, a small <b>cupboard</b>, and a mini retro <b>tv</b> that looks likes something an old man would use. You see a balcony to the <b>north</b>.',
+    directions: {
+      north: 'balcony21'
+    },
+    actions: {
+      'lie-on bed': 'You lay down, but can\'t shake your uncomfortable feeling... the musty smell that clings to the bed sheets doesn\'t help. You wouldn\'t like it if a stranger lied on your bed, maybe you shouldn\'t lie on theres.',
+      'sleep-on bed': 'Eyes closed you toss and turn... The smell of sweaty onions slip into your unconscious. You dream of being a fry cook.... You wake up and the bed sheets are a mess. You feel guilty knowing you slept in someone\'s bed so you make the sheets. You feel eyes on you, maybe it\'s best to keep moving.',
+      'use tv': 'You flip on the tv. Static. . . You play with the antenna to no avail. You turn it off.',
+      'inspect cupboard': 'You find someones clothes. Much too big to be yours. You find a few photos of what look like family members. They don\'t look like you. hmmm... maybe this person can help you.'
+    },
+  },
+  staircase21: {
+    description: 'A fine piece of art this staircase is. The handrails begin with a miniature column with oranate designs on all four sides. The tiny columns that support the handrail are oranate figurines of soilders clad in armor and are modeled in such a way they look like they are holding up the handrail. The gold inlaid in the center of the handrail has a painstackingly detailed chintz pattern etched into it. To call this staircase ostentatious would be an understatement... To ascend the staircase head <b>north</b>, to the <b>west</b> you will descend.',
+    directions: {
+      north: 'staircase31',
+      west: 'staircase11',
+    },
+    actions: {
+      'inspect staircase': 'If only you could pull this gold off the handrails...',
+    },
+  },
+  staircase31: {
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    directions: {
+      east: 'hallway31',
+      south: 'suite3a',
+    },
+  },
+  suite3a: {
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    directions: {
+      north: 'staircase31',
+      east: 'suite3b',
+    },
+  },
+  bathroom31: {
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    directions: {
+      south: 'nursery31',
+      west: 'office31',
+    },
+  },
+  suite3b: {
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    directions: {
+      north: 'hallway31',
+      east: 'bathroom31',
+      south: 'office31',
+      west: 'suite3a',
+    },
+  },
+  office31: {
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    directions: {
+      north: 'suite3b',
+      east: 'nursery31',
+    },
+  },
+  nursery31: {
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    directions: {
+      north: 'bathroom31',
+      west: 'office31',
+    },
+  },
+  hallway31: {
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    directions: {
+      east: 'stairs32',
+      south: 'suite3b',
+      west: 'stairs31',
+    },
+  },
+  stairs32: {
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    directions: {
+      east: 'roof41',
+    },
+  },
+  roof41: {
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    directions: {
+      south: 'stairs32',
+    },
+  },
+  staircase11: {
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    directions: {
+      east: 'living13',
+      south: 'living11',
+    },
+  },
+  living11: {
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    directions: {
+      north: 'staircase11',
+      east: 'living12',
+      south: 'kitchen11',
+      west: 'frontdoor',
+    },
+  },
+  kitchen11: {
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    directions: {
+      north: 'living11',
+      east: 'dining11',
+    },
+  },
+  living13: {
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    directions: {
+      north: 'pool1',
+      east: 'stairs12',
+      south: 'living12',
+      west: 'stairs11',
+    },
+  },
+  living12: {
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    directions: {
+      north: 'living13',
+      east: 'gameroom',
+      south: 'dining11',
+      west: 'living11'
+    },
+  },
+  dining11: {
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    directions: {
+      north: 'living12',
+      east: 'study11',
+      west: 'kitchen11',
+    },
+  },
+  garage: {
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    directions: {
+      east: 'living11',
+    },
+  },
+  staircase12: {
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    directions: {
+      north: 'staircase01',
+      south: 'gameroom',
+      west: 'living13',
+    },
+  },
+  gameroom: {
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    directions: {
+      north: 'staircase01',
+      south: 'study',
+      west: 'living12',
+    },
+  },
+  study: {
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    directions: {
+      north: 'gameroom',
+    },
+  },
+  staircase01: {
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    directions: {
+      west: 'hallway01',
+    },
+  },
+  hallway01: {
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    directions: {
+      east: 'staircase01',
+      south: 'movietheater',
+      west: 'winecellar',
+    },
+  },
+  winecellar: {
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    directions: {
+      east: 'hallway01',
+      south: 'storage01',
+    },
+  },
+  storage01: {
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    directions: {
+      north: 'winecellar',
+    },
+  },
+  movietheater: {
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    directions: {
+      north: 'hallway01',
+    },
+  },
+  pool1: {
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    directions: {
+      north: 'guesthouse1',
+      east: 'pool2',
+      west: 'garden',
+      south: 'living13',
+    },
+  },
+  guesthouse1: {
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    directions: {
+      south: 'pool1',
+    },
+  },
+  garden: {
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    directions: {
+      east: 'pool1',
+    },
+  },
+  pool2: {
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    directions: {
+      east: 'toolshed',
+      west: 'pool1',
+    },
+  },
 };
 
