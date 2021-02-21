@@ -26,7 +26,7 @@ function changeUserRoom(direct) {
     if(rooms[currentRoom].directions[direct] !== undefined ) {
         currentRoom = rooms[currentRoom].directions[direct];
         var userInputText = document.createElement('div');
-        userInputText.style.background = '#4D2618';
+        userInputText.style.background = 'linear-gradient(135deg, #4D2618, #1D1C1A 50%)';
         userInputText.style.width = '50%'
         userInputText.innerHTML = `<div>You have gone ${direct}.</div>`
         var displayGame = document.querySelector('#game-text')
@@ -49,7 +49,7 @@ function changeUserRoom(direct) {
 function userAction(act) {
     if(rooms[currentRoom].actions[act] !== undefined ) {
         var userInputText = document.createElement('div');
-        userInputText.style.background = 'rgb(95, 158, 160)';
+        userInputText.style.background = 'linear-gradient(135deg, #5F9EA0, #1D1C1A 50%)';
         userInputText.style.width = '50%'
         userInputText.style.color = 'black';
         userInputText.style.fontWeight = 'bolder'
@@ -78,7 +78,7 @@ function userAction(act) {
 function showHelp() {
     var displayGame = document.querySelector('#game-text')
     var commandList = document.createElement('ul');
-    commandList.style.background = '#4D2618';
+    commandList.style.background = 'linear-gradient(135deg, #4D2618, #1D1C1A 50%)';
     commandList.style.width = '50%';
     commandList.style.color = 'rgb(95, 158, 160)';
     commandList.innerHTML = 'Available commands:'
@@ -95,8 +95,8 @@ function showHelp() {
 function showInventory() {
     var displayGame = document.querySelector('#game-text')
     var inventoryList = document.createElement('ul');
-        inventoryList.innerHTML = 'Available inventory:'
-    inventoryList.style.background = '#4D2618';
+    inventoryList.innerHTML = 'Available inventory:'
+    inventoryList.style.background = 'linear-gradient(135deg, #4D2618, #1D1C1A 50%)';
     inventoryList.style.width = '50%';
     inventoryList.style.color = 'rgb(95, 158, 160)';
     inventory.forEach(function (item) {
@@ -148,7 +148,6 @@ function changeKillerRoom() {
             } else killerCurrentRoom = rooms[killerCurrentRoom].directions.west;
             break;
     }
-    console.log(killerCurrentRoom);
 }
 
 function updateDanger(danger) {
