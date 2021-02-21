@@ -1,5 +1,22 @@
 import { rooms, commands, inventory } from './rooms.js';
 var currentRoom = 'start';
+var killerCurrentRoom;
+
+// Randomly sets the killer starting room
+// I choose rooms that initially have all four directions available to move
+function killerStartingRoom() {
+    var determineStart = Math.floor(Math.random() * 4);
+    switch (determineStart) {
+        case 0:
+            return killerCurrentRoom = 'living11';
+        case 1:
+            return killerCurrentRoom = 'pool1';
+        case 2:
+            return killerCurrentRoom = 'suite3b';
+        case 3:
+            return killerCurrentRoom = 'living12';
+    }
+} 
 
 // change the user room by getting the direction typed in by the player
 // when called this function adds a movement blurb to the html
@@ -102,14 +119,36 @@ function clearfield() {
     document.querySelector('#user-input').value = '';
 }
 
-// it will be much easier if each room has a value, then I can use some math functions to 
-// move the killer in and out of rooms
-// values will matter most in the rooms where the floor changes, this can help the killer not to
-// teleport between floors to fuck the user
-// I can choose a few rooms which the killer can spawn into when the user presses 4
-// changeKillerRoom can be called with the changeUserRoom function so they run at the same time
+// Decided to nix the idea of adding a value to each room
+// Instead I went with generating a random number between 0-3, each value represents a direction
+// This chooses a room for the killer to move to with each move of the user
+// I have a check statement with each case so if their is no room in the random direction
+// The killer will stay in it's current room
 function changeKillerRoom() {
-
+    var determineMove = Math.floor(Math.random() * 4);
+    switch (determineMove) {
+        case 0:
+            if(rooms[killerCurrentRoom].directions.north === undefined) {
+                return killerCurrentRoom;
+            } else killerCurrentRoom = rooms[killerCurrentRoom].directions.north;
+            break;
+        case 1:
+            if(rooms[killerCurrentRoom].directions.east === undefined) {
+                return killerCurrentRoom;
+            } else killerCurrentRoom = rooms[killerCurrentRoom].directions.east;
+            break;
+        case 2:
+            if(rooms[killerCurrentRoom].directions.south === undefined) {
+                return killerCurrentRoom;
+            } else killerCurrentRoom = rooms[killerCurrentRoom].directions.south;
+            break;
+        case 3:
+            if(rooms[killerCurrentRoom].directions.west === undefined) {
+                return killerCurrentRoom;
+            } else killerCurrentRoom = rooms[killerCurrentRoom].directions.west;
+            break;
+    }
+    console.log(killerCurrentRoom);
 }
 
 function updateDanger(danger) {
@@ -126,6 +165,7 @@ document.addEventListener('keydown', KeyboardEvent => {
     // // var dropDown = document.getElementById('action-drop-down');
     userInputText.innerHTML = `<span>${userInput}</span>`;
     if(KeyboardEvent.keyCode === 52) {
+        killerStartingRoom();
         gameText.innerHTML = `<div>${rooms.start.description}</div>`;
         displayGame.appendChild(gameText);
     } else if(KeyboardEvent.keyCode === 53) {
@@ -146,6 +186,7 @@ function playerInput(input) {
         case 'go':
             var direct = input.split(' ')[1];
             changeUserRoom(direct);
+            changeKillerRoom();
             break;
         case 'help':
             showHelp();

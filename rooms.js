@@ -14,7 +14,6 @@ var rooms = {
     description: 'You are in what appears to be a small living room. The decorations are posh and expensive. There\'s a small cupboard next to you, but it\'s locked. There\'s a window and it appears that you are on the second floor of this building. You see a door to the <b>north</b>,a <b>window</b> to the east, a bad <b>painting</b> of a cat to the south, and large double doors to the <b>west</b>.',
     directions: {
       north: 'office21',
-      east: 'clearing21',
       west: 'suite2a',
     },
     actions: {
@@ -147,12 +146,12 @@ var rooms = {
   hallway31: {
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
     directions: {
-      east: 'stairs32',
+      east: 'staircase32',
       south: 'suite3b',
-      west: 'stairs31',
+      west: 'staircase31',
     },
   },
-  stairs32: {
+  staircase32: {
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
     directions: {
       east: 'roof41',
@@ -161,7 +160,7 @@ var rooms = {
   roof41: {
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
     directions: {
-      south: 'stairs32',
+      south: 'staircase32',
     },
   },
   staircase11: {
@@ -191,9 +190,9 @@ var rooms = {
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
     directions: {
       north: 'pool1',
-      east: 'stairs12',
+      east: 'staircase12',
       south: 'living12',
-      west: 'stairs11',
+      west: 'staircase11',
     },
   },
   living12: {
