@@ -1,6 +1,7 @@
 import { rooms, commands, inventory } from './rooms.js';
 var currentRoom = 'start';
 var killerCurrentRoom;
+let danger = 0;
 
 // Randomly sets the killer starting room
 // I choose rooms that initially have all four directions available to move
@@ -16,7 +17,7 @@ function killerStartingRoom() {
         case 3:
             return killerCurrentRoom = 'living12';
     }
-} 
+}
 
 // change the user room by getting the direction typed in by the player
 // when called this function adds a movement blurb to the html
@@ -38,6 +39,16 @@ function changeUserRoom(direct) {
     }
 }
 
+function updateDanger(currentRoom, killerCurrentRoom) {
+    if(currentRoom === killerCurrentRoom) {
+        danger += 25;
+        const displayDanger = document.getElementById('danger-display');
+        displayDanger.innerHTML = `<header>Danger = ${danger}%</header>`;
+        if(danger >= 75) {
+            displayDanger.style.background = 'red';
+        }
+    }
+}
 // very similar to the changeUserRoom function
 // instead this function matches the user commands to the actions in the 
 // rooms[currentRoom].actions object
@@ -63,8 +74,8 @@ function userAction(act) {
     } else {
         var displayGame = document.querySelector('#game-text')
         var gameText = document.createElement('div');
-        gameText.style.background = '#D4C6AA';
-        gameText.style.width = '50%';
+        gameText.style.background = '#bdaf95';
+        gameText.style.width = '60%';
         gameText.style.color = 'black';
         gameText.style.fontWeight = 'bolder'
         gameText.innerHTML = `<div>${rooms.invalid.description}</div>`;
@@ -150,10 +161,6 @@ function changeKillerRoom() {
     }
 }
 
-function updateDanger(danger) {
-
-}
-
 // input function... all major inputs go through this event listener
 // has the 4 and 5 keypresses as well to call the start description and help description
 document.addEventListener('keydown', KeyboardEvent => {
@@ -185,7 +192,8 @@ function playerInput(input) {
         case 'go':
             var direct = input.split(' ')[1];
             changeUserRoom(direct);
-            changeKillerRoom();
+            // changeKillerRoom();
+            updateDanger(currentRoom, killerCurrentRoom);
             break;
         case 'help':
             showHelp();
@@ -193,7 +201,7 @@ function playerInput(input) {
         case 'inventory':
             showInventory();
             break;
-        case 'inspect': case 'look': case 'use': case 'lie-on': case 'sleep-on': case 'talk': case 'look':
+        case 'inspect': case 'look': case 'read': case 'use': case 'lie-on': case 'sleep-on': case 'talk': case 'look':
             var act = input;
             userAction(act);
             break;

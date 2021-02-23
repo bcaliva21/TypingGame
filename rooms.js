@@ -1,7 +1,7 @@
 export { commands, rooms, inventory };
 
 var inventory = ['compass'];
-var commands = ['go', 'look', 'inspect', 'use', 'inventory', 'lie-on', 'sleep-on', 'pickup', 'talk'];
+var commands = ['go', 'look', 'inspect', 'read', 'use', 'inventory', 'lie-on', 'sleep-on', 'pickup', 'talk'];
 
 var rooms = {
   invalid: {
@@ -31,7 +31,7 @@ var rooms = {
     actions: {
       'talk': '. . . sadly their is no one to talk to.',
       'inspect desk':'You rummage through the desk in the office. You find a <b>knife</b> and a <b>notepad</b> with something scibbled on top. There appears to be blood drops on it.',
-      'inspect notepad' : 'He\'s stal~~', 
+      'read notepad' : 'He\'s stal~~', 
       'pickup knife': '~You acquired a pocket knife~'
     },
   },
@@ -120,7 +120,7 @@ var rooms = {
     },
   },
   suite3a: {
-    description: 'This massive suite is litered with toys on the floor of all sizes. . . You have to walk slowly to not step on anything. A giant unfinished lego house sits in the middle of the room. Half put together, or torn apart, you carefully navigate yourself around it. . . . As you scan the room you find a large rocketship bed, obviously made for child. Inside this bed you see a <b>women!</b> Unconscious, but breathing, see looks peaceful. In her mid-twenties, she\'s dressed in plain clothing. A white shirt and long black athletic shorts. Everything else in the loses significance at this discovery. You find a <b>staircase</b> to the north, another portion of the suite to the <b>east</b>, and a large double <b>window</b> to the south, and a small <b>nightstand</b> to the west.',
+    description: 'This massive suite is litered with toys on the floor of all sizes. . . You have to walk slowly to not step on anything. A giant unfinished lego house sits in the middle of the room. Half put together, or torn apart, you carefully navigate yourself around it. . . . As you scan the room you find a large rocketship bed, obviously made for child. Inside this bed you see a <b>women!</b> Unconscious, but breathing, see looks peaceful. In her mid-twenties, she\'s dressed in plain clothing. A white shirt and long black athletic shorts. Everything else in the suite loses significance at this discovery. You find a <b>staircase</b> to the north, another portion of the suite to the <b>east</b>, and a large double <b>window</b> to the south, and a small <b>nightstand</b> to the west.',
     directions: {
       north: 'staircase31',
       east: 'suite3b',
@@ -133,7 +133,7 @@ var rooms = {
       'sleep-on bed': 'You don\'t feel the urge to sleep at this particular moment.',
       'look out window': 'As you peer out the large double window you see rolling green hills litered with small trees. Not a soul in sight. . . and no sign of life aside from the trees.',
       'inspect nightstand': 'You find an indexcard on the nightstand, there is some writting scibbled on it.',
-      'inspect indexcard': 'Two down, two to go, before this game is at a close.',
+      'read indexcard': 'Two down, two to go, before this game is at a close.',
     },
   },
   bathroom31: {

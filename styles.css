@@ -7,8 +7,24 @@ body {
     background: #1D1C1A;
     color: rgb(95, 158, 160);
     margin: auto;
-
     padding: 1em;
+}
+
+#danger-display {
+    background: #4D2618;
+    font-size: 1em;
+    color: bisque;
+    padding: .25em;
+    text-align: left;
+    position: fixed;
+}
+
+#title-text {
+    padding-top: 2em;
+}
+
+h1 {
+    font-size: 1em;
 }
 div {
     padding: 5px;
