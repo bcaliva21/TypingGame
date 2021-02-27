@@ -1,7 +1,11 @@
+import { updateDanger } from './navBar.js';
 import { rooms, commands, inventory } from './rooms.js';
+export { inventory, displayGame, gameText, currentRoom, killerCurrentRoom, killerStartingRoom };
 var currentRoom = 'start';
 var killerCurrentRoom;
-let danger = 0;
+
+const displayGame = document.querySelector('#game-text')
+const gameText = document.createElement('div');
 
 // Randomly sets the killer starting room
 // I choose rooms that initially have all four directions available to move
@@ -26,12 +30,9 @@ function killerStartingRoom() {
 function changeUserRoom(direct) {
     if(rooms[currentRoom].directions[direct] !== undefined ) {
         currentRoom = rooms[currentRoom].directions[direct];
-        var userInputText = document.createElement('div');
-        userInputText.style.background = 'linear-gradient(135deg, #4D2618, #1D1C1A 50%)';
-        userInputText.style.width = '50%'
+        const userInputText = document.createElement('p');
+        const gameText = document.createElement('div');
         userInputText.innerHTML = `<div>You have gone ${direct}.</div>`
-        var displayGame = document.querySelector('#game-text')
-        var gameText = document.createElement('div');
         gameText.innerHTML = `<div>${rooms[currentRoom].description}</div>`;
         displayGame.appendChild(userInputText);
         displayGame.appendChild(gameText);
@@ -39,16 +40,7 @@ function changeUserRoom(direct) {
     }
 }
 
-function updateDanger(currentRoom, killerCurrentRoom) {
-    if(currentRoom === killerCurrentRoom) {
-        danger += 25;
-        const displayDanger = document.getElementById('danger-display');
-        displayDanger.innerHTML = `<header>Danger = ${danger}%</header>`;
-        if(danger >= 75) {
-            displayDanger.style.background = 'red';
-        }
-    }
-}
+
 // very similar to the changeUserRoom function
 // instead this function matches the user commands to the actions in the 
 // rooms[currentRoom].actions object
@@ -59,64 +51,19 @@ function updateDanger(currentRoom, killerCurrentRoom) {
 // clearfield is called at the end of the function to clear the input
 function userAction(act) {
     if(rooms[currentRoom].actions[act] !== undefined ) {
-        var userInputText = document.createElement('div');
-        userInputText.style.background = 'linear-gradient(135deg, #5F9EA0, #1D1C1A 50%)';
-        userInputText.style.width = '50%'
-        userInputText.style.color = 'black';
-        userInputText.style.fontWeight = 'bolder'
+        const userInputText = document.createElement('p2');
+        const gameText = document.createElement('div');
         userInputText.innerHTML = `<div>${act}...</div>`
-        var displayGame = document.querySelector('#game-text')
-        var gameText = document.createElement('div');
         gameText.innerHTML = `<div>${rooms[currentRoom].actions[act]}</div>`;
         displayGame.appendChild(userInputText);
         displayGame.appendChild(gameText);
         clearfield();
     } else {
-        var displayGame = document.querySelector('#game-text')
-        var gameText = document.createElement('div');
-        gameText.style.background = '#bdaf95';
-        gameText.style.width = '60%';
-        gameText.style.color = 'black';
-        gameText.style.fontWeight = 'bolder'
+        const gameText = document.createElement('p3');
         gameText.innerHTML = `<div>${rooms.invalid.description}</div>`;
         displayGame.appendChild(gameText);
         clearfield();
     }
-}
-
-// this function displays the possible commands to the user
-// the forEach is used to loop through the command array to display a list in the html
-function showHelp() {
-    var displayGame = document.querySelector('#game-text')
-    var commandList = document.createElement('ul');
-    commandList.style.background = 'linear-gradient(135deg, #4D2618, #1D1C1A 50%)';
-    commandList.style.width = '50%';
-    commandList.style.color = 'rgb(95, 158, 160)';
-    commandList.innerHTML = 'Available commands:'
-    commands.forEach(function (item) {
-        let li = document.createElement('li');
-        commandList.appendChild(li)
-        li.innerHTML += item;
-    })
-    displayGame.appendChild(commandList);
-    clearfield();
-}
-
-// similar to the showHelp function, yet this displays the inventory available to the user
-function showInventory() {
-    var displayGame = document.querySelector('#game-text')
-    var inventoryList = document.createElement('ul');
-    inventoryList.innerHTML = 'Available inventory:'
-    inventoryList.style.background = 'linear-gradient(135deg, #4D2618, #1D1C1A 50%)';
-    inventoryList.style.width = '50%';
-    inventoryList.style.color = 'rgb(95, 158, 160)';
-    inventory.forEach(function (item) {
-        let li = document.createElement('li');
-        inventoryList.appendChild(li)
-        li.innerHTML += item;
-    })
-    displayGame.appendChild(inventoryList);
-    clearfield();
 }
 
 // simple function that adds items picked up by the user to the inventory array
@@ -124,6 +71,7 @@ function addToInventory(item) {
     inventory.push(item);
     clearfield();
 }
+
 // the most called function by a mile... this function clears the user input after a 
 // command is entered
 function clearfield() {
@@ -162,22 +110,11 @@ function changeKillerRoom() {
 }
 
 // input function... all major inputs go through this event listener
-// has the 4 and 5 keypresses as well to call the start description and help description
 document.addEventListener('keydown', KeyboardEvent => {
-    var userInput = document.querySelector('#user-input').value
-    var displayGame = document.querySelector('#game-text')
-    var userInputText = document.createElement('div');
-    var gameText = document.createElement('div');
-    // // var dropDown = document.getElementById('action-drop-down');
+    const userInput = document.querySelector('#user-input').value
+    const userInputText = document.createElement('div');
     userInputText.innerHTML = `<span>${userInput}</span>`;
-    if(KeyboardEvent.keyCode === 52) {
-        killerStartingRoom();
-        gameText.innerHTML = `<div>${rooms.start.description}</div>`;
-        displayGame.appendChild(gameText);
-    } else if(KeyboardEvent.keyCode === 53) {
-        gameText.innerHTML = `<div>${rooms.help.description}</div>`;
-        displayGame.appendChild(gameText); 
-    } else if(KeyboardEvent.keyCode === 13) {
+    if(KeyboardEvent.keyCode === 13) {
         playerInput(userInput);
     }   
 });
@@ -190,36 +127,24 @@ function playerInput(input) {
     var command = input.split(' ')[0];
     switch(command) {
         case 'go':
-            var direct = input.split(' ')[1];
+            let direct = input.split(' ')[1];
             changeUserRoom(direct);
-            // changeKillerRoom();
+            changeKillerRoom();
             updateDanger(currentRoom, killerCurrentRoom);
             break;
-        case 'help':
-            showHelp();
-            break;
-        case 'inventory':
-            showInventory();
-            break;
         case 'inspect': case 'look': case 'read': case 'use': case 'lie-on': case 'sleep-on': case 'talk': case 'look':
-            var act = input;
+            const act = input;
             userAction(act);
             break;
         case 'pickup':
-            var act = input;
-            userAction(act);
+            const pickupAct = input;
+            userAction(pickupAct);
             addToInventory(input.split(' ')[1]);
             break;
         default:
-            var displayGame = document.querySelector('#game-text')
-            var gameText = document.createElement('div');
-            gameText.style.background = '#D4C6AA';
-            gameText.style.width = '50%';
-            gameText.style.color = 'black';
-            gameText.style.fontWeight = 'bolder'
-            gameText.innerHTML = `<div>You entered an invalid command.</div>`;
+            const gameText = document.createElement('p3');
+            gameText.innerHTML = `<div>${rooms.invalid.description}</div>`;
             displayGame.appendChild(gameText);
             clearfield();
     }
 }
-

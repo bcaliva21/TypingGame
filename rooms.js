@@ -1,15 +1,12 @@
 export { commands, rooms, inventory };
 
-var inventory = ['compass'];
-var commands = ['go', 'look', 'inspect', 'read', 'use', 'inventory', 'lie-on', 'sleep-on', 'pickup', 'talk'];
+const inventory = ['compass'];
+const commands = ['go', 'look', 'inspect', 'read', 'use', 'inventory', 'lie-on', 'sleep-on', 'pickup', 'talk'];
 
-var rooms = {
+const rooms = {
   invalid: {
-    description: 'You entered an invalid move. Check your compass and try again',
+    description: 'You entered an invalid move.',
   },
-  help: {
-    description: 'Help your character to remember who they are. Luckily you have a trusty compass! You can navigate by typing <b>go north, go east, go south, or go west</b>. Read and make sure to pay attention to <b>clues</b> left in bold type. Experiment with typing in simple actions when you see clues in the script. Type <b>help</b> to see available commands. Good luck, have fun... and don\'t die',
-    },
   start: {
     description: 'You are in what appears to be a small living room. The decorations are posh and expensive. There\'s a small cupboard next to you, but it\'s locked. There\'s a window and it appears that you are on the second floor of this building. You see a door to the <b>north</b>,a <b>window</b> to the east, a bad <b>painting</b> of a cat to the south, and large double doors to the <b>west</b>.',
     directions: {
@@ -32,7 +29,8 @@ var rooms = {
       'talk': '. . . sadly their is no one to talk to.',
       'inspect desk':'You rummage through the desk in the office. You find a <b>knife</b> and a <b>notepad</b> with something scibbled on top. There appears to be blood drops on it.',
       'read notepad' : 'He\'s stal~~', 
-      'pickup knife': '~You acquired a pocket knife~'
+      'pickup knife': '~You acquired a pocket knife~',
+      'look out window': 'A vast green landscape, beautiful, yet void of life... stares back at you. It\'d be beautiful if you didn\'t already feel alone. '
     },
   },
   suite2a: {
@@ -133,18 +131,24 @@ var rooms = {
       'sleep-on bed': 'You don\'t feel the urge to sleep at this particular moment.',
       'look out window': 'As you peer out the large double window you see rolling green hills litered with small trees. Not a soul in sight. . . and no sign of life aside from the trees.',
       'inspect nightstand': 'You find an indexcard on the nightstand, there is some writting scibbled on it.',
-      'read indexcard': 'Two down, two to go, before this game is at a close.',
+      'read indexcard': 'You can hide, but you can\'t run.',
     },
   },
   bathroom31: {
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    description: 'The wallpaper looks like a game of poorly played Tetris. The bright colors of the wall play off of the tile floor which is fashioned after the same game. The style may be childish, but the glamour and snobbish taste of the owner is unmistakeable. The room is designed and decorated for a child, but the pristine look and clean state of the room gives off the impression that no such person has lived here... You find it peculiar that there is no mirror in this bathroom, nor are there any visable toiletries. To the north is small <b>faucet</b>, to the east is a small <b>toilet</b> which sits adjacent to a child-sized <b>faucet</b>, to the <b>south</b> is a baby blue door and to the <b>west</b> an oak door.',
     directions: {
       south: 'nursery31',
       west: 'office31',
     },
+    actions: {
+      'use shower': 'ahhh... this makes you feel slightly better. It\'s quite tiny and there is no shampoo or soap. Just as you are feeling comfortable you promptly stop. You get the feeling you are being watched.',
+      'use toilet': 'You struggle as you squat down to such a tiny toilet. Uncomfortable as it is, it feels good to relieve yourself.',
+      'use faucet': 'No soap, but the cool water on your hands and face feel nice. You feel rejuvenized! You polietly turn off the faucet as you finish.',
+      'talk': '. . . sadly their is no one to talk to.',
+    },
   },
   suite3b: {
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    description: '.',
     directions: {
       north: 'hallway31',
       east: 'bathroom31',

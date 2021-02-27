@@ -5,15 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Text Adventure</title>
     <link rel='stylesheet' href='styles.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script defer src =app.js type ='module'></script>
     <script defer src =rooms.js type ='module'></script>
+    <script defer src =navBar.js type ='module'></script>
 </head>
 <body>
-    <h1 id='danger-display'>Danger = 0%</h1>
-    <div id='title-text'><p>Welcome to Deja Vu! <br>You wake up in a strange room with no memory of who you are. Luckily, you have a compass in your pocket. <br>Press <b>4</b> to begin, <b>5</b> for some tips. </p>
-    
+    <div class ='title-bar'>
+        <p id='title-text'>Welcome to Deja Vu! <br>You wake up in a strange room with no memory of who you are. Luckily, you have a compass in your pocket.</p>
     </div>
-    <div id='user-text'></div> <span id=action-drop-down></span>
+    <div class ='nav-bar sticky'>
+        <a class="start-game" ><i class="fa fa-play"></i> Start</a>
+        <a class ='show-help' >
+            <i class="fa fa-question-circle"></i>
+            <div class='help-container'>
+                <div class ='help-body'>
+                <p>Help your character to survive and navigate around the strange manor. 
+                    Luckily you have a trusty compass! You can navigate by typing <b>go north, go east, go south, </b>or<b> go west</b>. 
+                    Read and make sure to pay attention to <b>clues</b> left in bold type. Experiment with typing in simple actions when you see clues in the script. 
+                    Below are a list of available commands. Good luck, have fun... and don't die'</p>
+                <p>go, look, inspect, read, use, inventory, lie-on, sleep-on, pickup, talk</p>
+                </div>
+            </div>
+            
+            Help</a>
+        <a class ='show-inventory'>
+            <i class="fa fa-suitcase"></i> Inventory</a> 
+            <div class = 'inventory-container'>
+                <div class = 'inventory-body'>
+                    <p>Available Inventory</p>
+                </div>
+            </div>
+        </a>
+        <a class ='danger-meter'><i class="fa fa-exclamation-triangle"></i>
+            <span class ='display-danger'>Danger = 0%</span>
+        </a>
+    </div>
+    <div id='user-text' ></div> <span id=action-drop-down></span>
     <div id='game-text'></div>
     <!-- <div id="action-drop-down">
         <div class="action-text">
